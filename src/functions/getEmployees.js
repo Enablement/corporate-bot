@@ -21,9 +21,9 @@ function getEmployees(){
   const cards = employee_list.slice(0, 5).map(employee => ({
     title: `${employee.TitleOfCourtesy} ${employee.FirstName}, ${employee.LastName}`,
     subtitle: `${employee.Title}`,
-    imageUrl: '',
+    imageUrl: 'http://www.fromthetree.co.uk/wpimages/wp3528cd8a_06.png',
     buttons: [
-      {title: '', type: 'postback', value: ''},
+      {title: '세부내역 조회', type: 'postback', value: '세부내역 조회'},
     ],
   }))
 

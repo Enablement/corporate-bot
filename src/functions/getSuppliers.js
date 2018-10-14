@@ -19,7 +19,7 @@ function getSuppliers(){
   const cards = supplier_list.slice(0, 5).map(supplier => ({
     title: `${supplier.CompanyName} ${supplier.FirstName}, ${supplier.LastName}`,
     subtitle: `${supplier.Address}, ${supplier.City}, ${supplier.Country}`,
-    imageUrl: '',
+    imageUrl: 'http://www.fromthetree.co.uk/wpimages/wp3528cd8a_06.png',
     buttons: [
       {title: '세부내역 조회', type: 'postback', value: '세부내역 조회'},
     ],

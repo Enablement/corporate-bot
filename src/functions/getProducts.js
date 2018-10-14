@@ -19,9 +19,9 @@ function getProducts(){
   const cards = product_list.slice(0, 5).map(product => ({
     title: `${product.ProductName}`,
     subtitle: `$${product.UnitPrice}`,
-    imageUrl: '',
+    imageUrl: 'http://www.fromthetree.co.uk/wpimages/wp3528cd8a_06.png',
     buttons: [
-      {title: 'Add to Cart', type: 'postback', value: 'Add to Cart'},
+      {title: '세부내역 조회', type: 'postback', value: '세부내역 조회'},
     ],
   }))
 

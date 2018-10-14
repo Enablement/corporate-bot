@@ -23,7 +23,7 @@ function getEmployees(){
     subtitle: `${employee.Title}`,
     imageUrl: '',
     buttons: [
-      {title: 'Add to Cart', type: 'postback', value: 'Add to Cart'},
+      {title: '', type: 'postback', value: ''},
     ],
   }))
 

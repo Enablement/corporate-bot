@@ -21,7 +21,7 @@ function getSuppliers(){
     subtitle: `${supplier.Address}, ${supplier.City}, ${supplier.Country}`,
     imageUrl: '',
     buttons: [
-      {title: 'Add to Cart', type: 'postback', value: 'Add to Cart'},
+      {title: '세부내역 조회', type: 'postback', value: '세부내역 조회'},
     ],
   }))
 

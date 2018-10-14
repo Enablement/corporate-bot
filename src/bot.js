@@ -14,7 +14,8 @@
 const recastai = require('recastai').default
 
 // Instantiate Recast.AI SDK
-const client = new recastai(process.env.REQUEST_TOKEN)
+const config = require('./config')
+const client = new recastai(config.REQUEST_TOKEN)
 
 /*
  * Callback for BotConnector messages
@@ -23,6 +24,7 @@ const client = new recastai(process.env.REQUEST_TOKEN)
  */
 const replyMessage = message => {
   // Get text from message received
+  console.log("reply Message")
   const text = message.content
   console.log('I receive: ', text)
 
@@ -48,6 +50,7 @@ const replyMessage = message => {
  * - response: Response of your server (can be a blank object if not needed: {})
  */
 const reply = (request, response) => {
+  console.log("reply")
   return client.connect.handleMessage(request, response, replyMessage)
 }
 

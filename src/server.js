@@ -15,27 +15,44 @@ const express = require('express')
 const bodyParser = require('body-parser')
 
 // Load configuration
-require('./config')
-const bot = require('./bot')
+const config = require('./config')
+const {getEmployees, getProducts, getSuppliers} = require('./functions')
+const path = require('path')
 
 // Start Express server
 const app = express()
-app.set('port', process.env.PORT || 5000)
+app.set('port', config.PORT)
 app.use(bodyParser.json())
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 // Handle / route
-app.use('/', (request, response) => {
-  bot.reply(request, response)
-    .then(success => {
-      console.log(success)
-      if (!response.headersSent) { response.status(200) }
-    }).catch(error => {
-      console.log('Error in your bot:', error)
-      if (!response.headersSent) { response.sendStatus(400) }
-    })
+
+
+app.post('/get-products', (request, response) => {
+  console.log('Route /get-products')
+  return response.json({
+    replies: getProducts(),
+  })
 })
 
-if (!process.env.REQUEST_TOKEN) {
+
+app.post('/get-employees', (request, response) => {
+  console.log('Route /get-employees')
+  return response.json({
+    replies: getEmployees(),
+  })
+})
+
+
+app.post('/get-suppliers', (request, response) => {
+  console.log('Route /get-suppliers')
+  return response.json({
+    replies: getSuppliers(),
+  })
+})
+
+if (!config.REQUEST_TOKEN) {
   console.log('ERROR: process.env.REQUEST_TOKEN variable in src/config.js file is empty ! You must fill this field with the request_token of your bot before launching your bot locally')
 
   process.exit(0)
